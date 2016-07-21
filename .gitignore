@@ -14,3 +14,9 @@
 /robots.txt
 /update.php
 /web.config
+/.buildpath
+/.csslintrc
+/.editorconfig
+/.eslintignore
+/.eslintrc
+/.project
