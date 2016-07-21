@@ -1,0 +1,7 @@
+name: Eparchment
+type: module
+description: 'Eparchment is a replacement for an ecard or e-card.  This module schedules and sends an electronic-parchment and images via e-mail.'
+package: Development
+core: 8.x
+# configure: eparchment.form
+configure: eparchment.settings

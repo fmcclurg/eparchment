@@ -1,0 +1,72 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function eparchment_theme($existing, $type, $theme, $path) {
+  $variables = array(
+    'eparchment' => array(
+      'variables' => array(
+        'source_text' => NULL,
+      ),
+      'template' => 'eparchment',
+    ),
+  );
+  return $variables;
+}
+
+/**
+ * Template preprocess function for Lorem ipsum
+ *
+ * @param variables
+ *   An associative array containing:
+ *   - source_text
+ */
+function template_preprocess_eparchment(&$variables) {
+  $punctuation = array('. ', '! ', '? ', '... ', ': ', '; ');
+  for ($i = 0; $i < count($variables['source_text']); $i++) {
+    $big_text = explode('. ', $variables['source_text'][$i]);
+    for ($j = 0; $j < count($big_text)-1; $j++) {
+      $big_text[$j] .= $punctuation[floor(mt_rand(0, count($punctuation)-1))];
+    }
+    $variables['source_text'][$i] = implode('', $big_text);
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function eparchment_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.eparchment':
+      return t('
+        <h2 align="center"> Eparchment </h2>
+            
+        <h3> Summary </h3>
+
+        <p> Eparchment is an ecard replacement that schedules and sends a fancy
+           electronic-parchment message and image via email. </p>
+
+        <h3>Instructions</h3>
+
+        <p> Sending an eparchment to a friend is quite easy!
+           &nbsp; You can create an eparchment using the following
+           steps: </p>
+            
+        <ol>
+           <li> Enter e-mail of your friend. </li>
+           <li> Enter your own e-mail address. </li>
+           <li> Create the subject line. </li>
+           <li> Compose your personal message. </li>
+           <li> Upload an image. </li>
+           <li> Specify the date eparchment will be delivered. </li>
+        </ol>
+
+        <p> An email message is sent on the date you specified,
+            notifying your friend that they have e-parchment
+            waiting for them via the following link. </p>
+      ');
+  }
+}

@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file eparchment.install
+ * Installation functions for Eparchment module.
+ */
+
+use Drupal\user\RoleInterface;
+
+/**
+ * Implements hook_install().
+ * 
+ * Once module is enabled, look for "allow eparchment creation"
+ * permission (inside *.permissions.yml file) and enable it.
+ */
+function eparchment_install() {
+  user_role_change_permissions(RoleInterface::ANONYMOUS_ID, array(
+      'allow eparchment creation' => TRUE,
+  ));
+}

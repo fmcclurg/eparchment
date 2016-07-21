@@ -1,0 +1,14 @@
+# The defaults assigned to the fields of a configuration form.
+eparchment.settings:
+  type: mapping
+  label: 'Eparchment settings'
+  mapping:
+    eparchment:
+      type: mapping
+      mapping:
+        page_title:
+          type: text
+          label: 'Eparchment generator page title:'
+        subject_text:
+          type: text
+          label: 'Eparchment subject'

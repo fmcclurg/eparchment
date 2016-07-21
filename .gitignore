@@ -1,0 +1,16 @@
+/core/
+/profiles/
+/sites/
+/themes/
+/vendor/
+/.htaccess
+/autoload.php
+/composer.json
+/composer.lock
+/example.gitignore
+/index.php
+/LICENSE.txt
+/README.txt
+/robots.txt
+/update.php
+/web.config

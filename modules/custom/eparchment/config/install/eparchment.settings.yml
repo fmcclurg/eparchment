@@ -1,0 +1,5 @@
+# This file stores configuration defaults, which are assigned
+# to the associated fields in the "*.schema.yml" file.
+eparchment:
+  page_title: 'Eparchment settings'
+  subject_text: "Your e-parchment is waiting for you!"
