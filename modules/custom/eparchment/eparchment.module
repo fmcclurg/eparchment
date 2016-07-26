@@ -4,12 +4,14 @@ use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
  * Implements hook_theme().
+ * 
+ * Variables are specified in "templates/eparchment.html.twig" file.
  */
 function eparchment_theme($existing, $type, $theme, $path) {
   $variables = array(
     'eparchment' => array(
       'variables' => array(
-        'source_text' => NULL,
+        'subject_text' => NULL,
       ),
       'template' => 'eparchment',
     ),
@@ -18,20 +20,20 @@ function eparchment_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Template preprocess function for Lorem ipsum
+ * Template preprocess function for Eparchment
  *
  * @param variables
  *   An associative array containing:
- *   - source_text
+ *     - subject_text
  */
 function template_preprocess_eparchment(&$variables) {
   $punctuation = array('. ', '! ', '? ', '... ', ': ', '; ');
-  for ($i = 0; $i < count($variables['source_text']); $i++) {
-    $big_text = explode('. ', $variables['source_text'][$i]);
+  for ($i = 0; $i < count($variables['subject_text']); $i++) {
+    $big_text = explode('. ', $variables['subject_text'][$i]);
     for ($j = 0; $j < count($big_text)-1; $j++) {
       $big_text[$j] .= $punctuation[floor(mt_rand(0, count($punctuation)-1))];
     }
-    $variables['source_text'][$i] = implode('', $big_text);
+    $variables['subject_text'][$i] = implode('', $big_text);
   }
 }
 

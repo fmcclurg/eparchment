@@ -24,6 +24,8 @@ class EparchmentForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}.
+   * 
+   * This method actually builds the settings form:
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     // Form constructor
@@ -92,6 +94,8 @@ class EparchmentForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}.
+   * 
+   * Must declare even if we are not using this function.
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
 
@@ -99,6 +103,8 @@ class EparchmentForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}.
+   * 
+   * Must declare even if we are not using this function.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = $this->config('eparchment.settings');
@@ -110,6 +116,8 @@ class EparchmentForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}.
+   * 
+   * Must declare even if we are not using this function.
    */
   protected function getEditableConfigNames() {
     return [

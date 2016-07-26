@@ -23,10 +23,11 @@ class EparchmentController {
    */
   // public function generate($paragraphs, $phrases) {
   public function generate() {
-    // Default settings
+    // Default settings (gets module settings and stores them for later use):
     $config = \Drupal::config('eparchment.settings');
-    // Page title and subject text.
+    // Page title (set in \eparchment\config\install\eparchment.settings.yml):
     $page_title = $config->get('eparchment.page_title');
+    // Subject text (set in \eparchment\config\install\eparchment.settings.yml):
     $subject_text = $config->get('eparchment.subject_text');
 
     $element['#subject_text'] = array();

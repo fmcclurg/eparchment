@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Default theme implementation to print Lorem ipsum text.
+ *
+ * Available variables:
+ *   - source_text
+ *
+ * @see template_preprocess_eparchment()
+ *
+ * @ingroup themeable
+ */
+#}
+<ul class="eparchment">
+{% for item in subject_text %}
+  <li>{{ item }}</li>
+{% endfor %}
+</ul>
