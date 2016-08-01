@@ -10,16 +10,18 @@ namespace Drupal\eparchment\Controller;
 # use Drupal\Core\Url;
 // Change following https://www.drupal.org/node/2457593
 use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Core\Controller\ControllerBase;
+# use Drupal\Core\Controller\ControllerBase;
 
 /**
  * Controller routines for Eparchment pages.
  */
-class EparchmentController {
+class EparchmentController extends ControllerBase {
 
   /**
    * Constructs Eparchment text with arguments.
    * This callback is mapped to the path
-   * 'eparchment/generate/'.
+   *   /eparchment/generate/
    */
   // public function generate($paragraphs, $phrases) {
   public function generate() {
@@ -43,5 +45,17 @@ class EparchmentController {
     $element['#theme'] = 'eparchment';
 
     return $element;
+  }
+  
+  /**
+   * This callback is mapped to the path:
+   *    /eparchment
+   */
+  public function content() {
+    return array(
+        '#type' => 'markup',
+        # '#markup' => $this->t('Eparchment Content'),
+        '#markup' => 'Eparchment Content',
+    );
   }
 }

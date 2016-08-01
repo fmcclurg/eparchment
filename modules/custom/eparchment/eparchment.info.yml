@@ -1,7 +1,11 @@
-name: Eparchment
-type: module
+name: Eparchment Module
 description: 'Eparchment is a replacement for an ecard or e-card.  This module schedules and sends an electronic-parchment and images via e-mail.'
-package: Development
+type: module
+package: Custom
 core: 8.x
+# dependencies:
+  # - datetime:datetime
+  # - link:link
+  # - drupal:views
 # configure: eparchment.form
 configure: eparchment.settings

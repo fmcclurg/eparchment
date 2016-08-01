@@ -1,3 +1,11 @@
+eparchment.content:
+  path: '/eparchment/content'
+  defaults:
+    _controller: '\Drupal\eparchment\Controller\EparchmentController::content'
+    _title: 'Eparchment Configuration Settings'
+  requirements:
+    _permission: 'access content'
+
 eparchment.generate:
   # path: 'eparchment/generate/{paragraphs}/{phrases}'
   path: 'eparchment/generate'
@@ -7,10 +15,10 @@ eparchment.generate:
     # _access: 'TRUE' for unrestricted access
     _permission: 'allow eparchment creation'
 
-eparchment.form:
+eparchment.settings:
   path: '/admin/config/development/eparchment'
   defaults:
     _form: 'Drupal\eparchment\Form\EparchmentForm'
-    _title: 'Eparchment settings'
+    _title: 'Eparchment Settings'
   requirements:
     _permission: 'administer site configuration'

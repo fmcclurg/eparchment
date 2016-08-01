@@ -1,0 +1,6 @@
+eparchment.settings:
+  title: 'Eparchment module settings'
+  description: 'Default settings for the eparchment module.'
+  parent: system.admin_config_development
+  route_name: eparchment.settings
+  weight: 100
