@@ -12,7 +12,7 @@ use Drupal\Core\Form\FormStateInterface;
 # use Drupal\Core\Url;
 
 /**
- * Lorem Ipsum block form
+ * Eparchment block form
  */
 class EparchmentBlockForm extends FormBase {
   /** 

@@ -25,7 +25,8 @@ class EparchmentForm extends ConfigFormBase {
   /**
    * {@inheritdoc}.
    * 
-   * This method actually builds the settings form:
+   * This method builds the configuration settings form that
+   * defines the default values:
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     // Form constructor
@@ -39,23 +40,26 @@ class EparchmentForm extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Eparchment generator page title:'),
       '#default_value' => $config->get('eparchment.page_title'),
-      '#description' => $this->t('Give your Eparchment generator page a title.'),
+      '#description' => $this->t('Give your Eparchment generator page a default title.'),
+      '#required' => FALSE,
     );
 
     // Recipient's email field
     $form['recipient_email'] = array(
       '#type' => 'email',
       '#title' => $this->t('Friend\'s email:'),
-      '#description' => $this->t('Enter the email address of the Eparchment recipient.'),
-      '#required' => TRUE,
+      '#default_value' => $config->get('eparchment.recipient_email'),
+      '#description' => $this->t('Enter the default email address of the Eparchment recipient.'),
+      '#required' => FALSE,
     );
 
     // From email field
     $form['from_email'] = array(
       '#type' => 'email',
       '#title' => $this->t('Your email:'),
-      '#description' => $this->t('Enter your email address in case your friend wants to reply.'),
-      '#required' => TRUE,
+      '#default_value' => $config->get('eparchment.from_email'),
+      '#description' => $this->t('Enter the default email address in case your friend wants to reply.'),
+      '#required' => FALSE,
     );
 
     // Subject text field
@@ -63,30 +67,31 @@ class EparchmentForm extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Eparchment subject:'),
       '#default_value' => $config->get('eparchment.subject_text'),
-      '#description' => $this->t('Enter the Eparchment subject that will show up in your friend\'s mailbox.'),
+      '#description' => $this->t('Enter the default Eparchment subject that will show up in your friend\'s mailbox.'),
       '#size' => 60,
       '#maxlength' => 120,
-      '#required' => TRUE,
+      '#required' => FALSE,
     );
 
-    // Subject text field
+    // Message text field
     $form['message_text'] = array(
       '#type' => 'textarea',
       '#title' => $this->t('Personal message:'),
       '#default_value' => $config->get('eparchment.message_text'),
-      '#description' => $this->t('Enter a message to your friend that will accompany your Eparchment.'),
+      '#description' => $this->t('Enter the default message to your friend that will accompany your Eparchment.'),
       '#rows' => 4,
       '#cols' => 60,
       '#resizable' => 'vertical',  // "none", "vertical", "horizontal", or "both" (defaults to "vertical")
-      '#required' => TRUE,
+      '#required' => FALSE,
     );
 
     // From email field
-    $form['from_email'] = array(
-      '#type' => 'email',
-      '#title' => $this->t('Your email:'),
-      '#description' => $this->t('Enter your email address in case your friend wants to reply.'),
-      '#required' => TRUE,
+    $form['send_date'] = array(
+      '#type' => 'date',
+      '#title' => $this->t('Delivery Date:'),
+      '#default_value' => $config->get('eparchment.send_date'),
+      '#description' => $this->t('Enter the default date you want the Eparchment sent.'),
+      '#required' => FALSE,
     );
 
     return $form;
